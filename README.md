@@ -23,11 +23,14 @@ Inside that folder I'll place each exercise in it's own directory.
 Practice is mandatory to learn new languages.
 
 The exercises should be comitted to a local branch and submitted as a Pull-Request to the master branch of your forked version.  
-The exercises will be published in the repository and via Slack.  
-Each exercise folder will have at least one file (named *main.py*) with details as part of its doc-string.
+The exercises will be published in the repository and via Slack:
+  - Exercises are numbered and placed in appripriate folders
+  - Each exercise folder will have at least one file (named *main.py*) with details as part of its doc-string.
+  - Details include a number/name, a link and a quick summary.
+  - The summary does not replace the link, Read the exercise from the link.
 ```python
 """
-Example Homework Exercise
+Homework Exercise: Example 
 Link: www.practicepython.org/exercise/2014/04/30/13-fibonacci.html
 
 Write a program that asks the user how many Fibonnaci numbers to generate and then generates them.
