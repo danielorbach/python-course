@@ -15,8 +15,24 @@ Clone your own _Fork_ of the repository:
   - [Working with Forks](https://help.github.com/en/articles/working-with-forks)
   - [Fork a repo](https://help.github.com/en/articles/fork-a-repo)
 
+Each lesson has a directory. 
+Inside that folder there is a _homework_ directory. 
+Inside that folder I'll place each exercise in it's own directory.
+
 ## Practice
 Practice is mandatory to learn new languages.
 
-The exercises will be published in the repository (and via Slack).  
-The exercises should be comitted to a local branch and submitted as a Pull-Request to the master branch (your forked version of course).
+The exercises should be comitted to a local branch and submitted as a Pull-Request to the master branch of your forked version.  
+The exercises will be published in the repository and via Slack.  
+Each exercise folder will have at least one file (named *main.py*) with details as part of its doc-string.
+```python
+"""
+Example Homework Exercise
+Link: www.practicepython.org/exercise/2014/04/30/13-fibonacci.html
+
+Write a program that asks the user how many Fibonnaci numbers to generate and then generates them.
+Take this opportunity to think about how you can use functions.
+Make sure to ask the user to enter the number of numbers in the sequence to generate.(Hint: The Fibonnaci seqence is a sequence of numbers where the next number in the sequence is the sum of the previous two numbers in the sequence.
+The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …)
+"""
+```
