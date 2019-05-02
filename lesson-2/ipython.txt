@@ -1,0 +1,632 @@
+>>> num = 33333333333333333333333333333333333333333
+>>> num
+33333333333333333333333333333333333333333
+>>> bool(0)
+False
+>>> bool(4)
+True
+>>> a = bool(4)
+>>> a = int('888')
+>>> a
+888
+>>> a = int('888', 7)
+>>> a = int('888', 9)
+>>> a
+728
+>>> b = ([0,1])
+>>> b
+[0, 1]
+>>> b = ([0,1],)
+>>> b
+([0, 1],)
+>>> hash(b)
+>>> try:
+...     bb
+... except:
+...     raise ValueError
+...
+>>> try:
+...     bb
+... except:
+...     raise ValueError()
+...
+>>> 'k' in 'keren'
+True
+>>> 'o' in 'keren'
+False
+>>> 'k' not in 'keren'
+False
+>>> 5 in range(10)
+True
+>>> class BiggerThan:
+...     def __init__(self, n):
+...         self.n = n
+...
+>>> class BiggerThan:
+...     def __init__(self, n):
+...         self.n = n
+...     def __eq__(self, other):
+...         return self.n > other
+...
+>>> BiggerThan(5) in range(10)
+True
+>>> BiggerThan(11) in range(10)
+True
+>>> class BiggerThan:
+...     def __init__(self, n):
+...         self.n = n
+...     def __eq__(self, other):
+...         return self.n < other
+...
+>>> BiggerThan(11) in range(10)
+False
+>>> BiggerThan(5) in range(10)
+True
+>>> list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> class BiggerThan:
+...     def __init__(self, n):
+...         self.n = n
+...     def __eq__(self, other):
+...         print(f"compare {self.n} with {other}")
+...         return self.n < other
+...
+>>> BiggerThan(11) in range(10)
+False
+>>> BiggerThan(5) in range(10)
+True
+>>> class BiggerThan(int):
+...     def __eq__(self, other):
+...         return self < other
+...
+>>> n = BiggerThan(5)
+>>> n < 6
+True
+>>> n > 3
+True
+>>> n == 5
+False
+>>> n == 9
+True
+>>> n == 2
+False
+>>> dir(n)
+['__abs__',
+ '__add__',
+ '__and__',
+ '__bool__',
+ '__ceil__',
+ '__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__divmod__',
+ '__doc__',
+ '__eq__',
+ '__float__',
+ '__floor__',
+ '__floordiv__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getnewargs__',
+ '__gt__',
+ '__hash__',
+ '__index__',
+ '__init__',
+ '__init_subclass__',
+ '__int__',
+ '__invert__',
+ '__le__',
+ '__lshift__',
+ '__lt__',
+ '__mod__',
+ '__module__',
+ '__mul__',
+ '__ne__',
+ '__neg__',
+ '__new__',
+ '__or__',
+ '__pos__',
+ '__pow__',
+ '__radd__',
+ '__rand__',
+ '__rdivmod__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__rfloordiv__',
+ '__rlshift__',
+ '__rmod__',
+ '__rmul__',
+ '__ror__',
+ '__round__',
+ '__rpow__',
+ '__rrshift__',
+ '__rshift__',
+ '__rsub__',
+ '__rtruediv__',
+ '__rxor__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__sub__',
+ '__subclasshook__',
+ '__truediv__',
+ '__trunc__',
+ '__xor__',
+ 'bit_length',
+ 'conjugate',
+ 'denominator',
+ 'from_bytes',
+ 'imag',
+ 'numerator',
+ 'real',
+ 'to_bytes']
+>>> dir(str)
+['__add__',
+ '__class__',
+ '__contains__',
+ '__delattr__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getitem__',
+ '__getnewargs__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__iter__',
+ '__le__',
+ '__len__',
+ '__lt__',
+ '__mod__',
+ '__mul__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__rmod__',
+ '__rmul__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ 'capitalize',
+ 'casefold',
+ 'center',
+ 'count',
+ 'encode',
+ 'endswith',
+ 'expandtabs',
+ 'find',
+ 'format',
+ 'format_map',
+ 'index',
+ 'isalnum',
+ 'isalpha',
+ 'isascii',
+ 'isdecimal',
+ 'isdigit',
+ 'isidentifier',
+ 'islower',
+ 'isnumeric',
+ 'isprintable',
+ 'isspace',
+ 'istitle',
+ 'isupper',
+ 'join',
+ 'ljust',
+ 'lower',
+ 'lstrip',
+ 'maketrans',
+ 'partition',
+ 'replace',
+ 'rfind',
+ 'rindex',
+ 'rjust',
+ 'rpartition',
+ 'rsplit',
+ 'rstrip',
+ 'split',
+ 'splitlines',
+ 'startswith',
+ 'strip',
+ 'swapcase',
+ 'title',
+ 'translate',
+ 'upper',
+ 'zfill']
+>>> dir(object)
+['__class__',
+ '__delattr__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__']
+>>> str.__dir__
+<method '__dir__' of 'object' objects>
+>>> str.__dir__()
+>>> "0".__dir__()
+['__repr__',
+ '__hash__',
+ '__str__',
+ '__getattribute__',
+ '__lt__',
+ '__le__',
+ '__eq__',
+ '__ne__',
+ '__gt__',
+ '__ge__',
+ '__iter__',
+ '__mod__',
+ '__rmod__',
+ '__len__',
+ '__getitem__',
+ '__add__',
+ '__mul__',
+ '__rmul__',
+ '__contains__',
+ '__new__',
+ 'encode',
+ 'replace',
+ 'split',
+ 'rsplit',
+ 'join',
+ 'capitalize',
+ 'casefold',
+ 'title',
+ 'center',
+ 'count',
+ 'expandtabs',
+ 'find',
+ 'partition',
+ 'index',
+ 'ljust',
+ 'lower',
+ 'lstrip',
+ 'rfind',
+ 'rindex',
+ 'rjust',
+ 'rstrip',
+ 'rpartition',
+ 'splitlines',
+ 'strip',
+ 'swapcase',
+ 'translate',
+ 'upper',
+ 'startswith',
+ 'endswith',
+ 'isascii',
+ 'islower',
+ 'isupper',
+ 'istitle',
+ 'isspace',
+ 'isdecimal',
+ 'isdigit',
+ 'isnumeric',
+ 'isalpha',
+ 'isalnum',
+ 'isidentifier',
+ 'isprintable',
+ 'zfill',
+ 'format',
+ 'format_map',
+ '__format__',
+ 'maketrans',
+ '__sizeof__',
+ '__getnewargs__',
+ '__doc__',
+ '__setattr__',
+ '__delattr__',
+ '__init__',
+ '__reduce_ex__',
+ '__reduce__',
+ '__subclasshook__',
+ '__init_subclass__',
+ '__dir__',
+ '__class__']
+>>> def f():
+...     pass
+...
+>>> callable(f)
+True
+>>> callable(5)
+False
+>>> callable(int)
+True
+>>> hasattr('__le__', 5)
+>>> hasattr(5. '__le__')
+>>> hasattr(5, '__le__')
+True
+>>> hasattr(, '__le__')
+>>> hasattr(f, '__le__')
+True
+>>> hasattr(f, '_iter__')
+False
+>>> hasattr(list(), '__iter__')
+True
+>>> hasattr(f, '__iter__')
+False
+>>> ValueError.mro()
+[ValueError, Exception, BaseException, object]
+>>> class Root(Exception):
+...    pass
+...
+>>> class Left(Root):
+...     pass
+...
+>>> class Right(Root):
+...     pass
+...
+>>> class Join(Left, Right, int):
+...     pass
+...
+>>> class Join(Left, Right):
+...     pass
+...
+>>> Join.mro()
+[__main__.Join,
+ __main__.Left,
+ __main__.Right,
+ __main__.Root,
+ Exception,
+ BaseException,
+ object]
+>>> help(with)
+>>> help("with")
+>>> with open(r"C:\Temp\test.txt", mode="w") as f:
+...     f.write("Hello World")
+...
+>>> import tempfile
+>>> with tempfile.TemporaryDirectory() as tmp_dir:
+...     pass
+...
+>>> def f():
+...     x = 5
+...     x += 1
+...     return x
+...
+>>> f()
+6
+>>> f()
+6
+>>> f()
+6
+>>> def f():
+...     f.x = 5 if not hasattr(f, 'x') else f.x
+...     x += 1
+...     return x
+...
+>>> f()
+>>> def F():
+...     x = 5
+...     def f():
+...         x += 1
+...         return x
+...     return f
+...
+>>> tempfile.__file__
+'c:\\users\\daniel.orbach\\appdata\\local\\programs\\python\\python37\\lib\\tempfile.py'
+>>> f = F()
+>>> f
+<function __main__.F.<locals>.f()>
+>>> f()
+>>> dir(f)
+['__annotations__',
+ '__call__',
+ '__class__',
+ '__closure__',
+ '__code__',
+ '__defaults__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__get__',
+ '__getattribute__',
+ '__globals__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__kwdefaults__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__name__',
+ '__ne__',
+ '__new__',
+ '__qualname__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__']
+>>> f.__code__
+<code object f at 0x000001FA01052C00, file "<ipython-input-76-6276dda8a56f>", line 3>
+>>> cls
+>>> x = [i for i in range(10) if i % 2 == 0]
+>>> x
+[0, 2, 4, 6, 8]
+>>> x = [i**2 for i in range(10) if i % 2 == 0]
+>>> x
+[0, 4, 16, 36, 64]
+>>> d = {}
+>>> d = { i: i** 2 for i in range(10) }
+>>> d
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+>>> import pprint
+>>> pprint.pprint(d)
+>>> pprint.pprint?
+>>> pprint.pprint(d, iwdth=1)
+>>> pprint.pprint(d, width=1)
+>>> r = { v: k for k, v in d.items() }
+>>> pprint.pprint(r, width=1)
+>>> map(lambda i: i*i, range(10))
+<map at 0x1fa01377e48>
+>>> list(_)
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> _
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> _90
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+>>> filter(lambda i: i*i, range(10))
+<filter at 0x1fa01de9278>
+>>> list(_)
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> x = 5 if False else 1
+>>> x
+1
+>>> def sqyare(i):
+...     return i*i
+...
+>>> filter(sqyare, range(10))
+<filter at 0x1fa01dd7438>
+>>> list(_)
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> sqyare = lambda i: i* i
+>>> sqyare
+<function __main__.<lambda>(i)>
+>>> def override_me():
+...     print('I should be overriden")
+...
+>>> def override_me():
+...     print('I should be overriden')
+...
+>>> def constant():
+...     override_me()
+...
+>>> constant()
+>>> constant()
+>>> def new_override():
+...     print("now I'm overriden")
+...
+>>> override_me = new_override
+>>> constant()
+>>> cls
+>>> def one2hundred():
+...     i = 1
+...     while i < 100:
+...         yield i
+...         i += 1
+...
+>>> iterator = one2hundred()
+>>> iterator
+<generator object one2hundred at 0x000001FA01773A20>
+>>> next(iterator)
+1
+>>> def one2hundred():
+...     print('start')
+...     i = 1
+...     print('i=1')
+...     while i < 100:
+...         print(f'returning i={i}')
+...         yield i
+...         print(f'increment i ({i})')
+...         i += 1
+...
+>>> next(iterator)
+2
+>>> next(iterator)
+3
+>>> iterator = one2hundred()
+>>> iterator
+<generator object one2hundred at 0x000001FA00B626D8>
+>>> next(iterator)
+1
+>>> next(iterator)
+2
+>>> next(iterator)
+3
+>>> next(iterator)
+4
+>>> while True:
+...     next(iterator)
+...
+>>> def generate_file():
+...     f = open()
+...     yield f
+...     f.close()
+...
+>>> for i in range(10):
+...     for j in range(10):
+...         print((i, j))
+...
+>>> def count_i():
+...     for i in range(10):
+...         yield i
+...
+>>> def count_j():
+...     for j in range(10):
+...         yield j
+...
+>>> count_j = count_i
+>>> def world():
+...     yield from range(10)
+...
+>>> w = world()
+>>> next(w)
+0
+>>> next(w)
+1
+>>> next(w)
+2
+>>> cls
+>>> tempfile.__file
+>>> tempfile.__file__
+'c:\\users\\daniel.orbach\\appdata\\local\\programs\\python\\python37\\lib\\tempfile.py'
+>>> import json
+>>> json.__file__
+'c:\\users\\daniel.orbach\\appdata\\local\\programs\\python\\python37\\lib\\json\\__init__.py'
+>>> json.__version__
+'2.0.9'
+>>> import time
+>>> time
+<module 'time' (built-in)>
+>>> import time as another_name
+>>> another_name
+<module 'time' (built-in)>
+>>> another_name == time
+True
+>>> from time import altzone
+>>> altzone == another_name.altzone == time.altzone
+True
+>>> altzone == another_name.altzone == time.altzone == False
+False
+>>> json.codecs
+<module 'codecs' from 'c:\\users\\daniel.orbach\\appdata\\local\\programs\\python\\python37\\lib\\codecs.py'>
+>>> json.JSON
+>>> import logging
+>>> logging.config
+>>> import logging.config
+>>> logging.config
+<module 'logging.config' from 'c:\\users\\daniel.orbach\\appdata\\local\\programs\\python\\python37\\lib\\logging\\config.py'>
+>>>  %save Development/orbach/Courses/python-course/lesson-2/ipython.txt
