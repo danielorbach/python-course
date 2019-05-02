@@ -3,6 +3,11 @@ Stira
 
 assign a value (any value, even your own type works) to the variable 'n' so the code in 'main' works without exceptions.
 DO NOT change the code in 'main'.
+
+Read about:
+  - object.__eq__
+  - int.__lt__, int.__le__, int.__gt__, int.__ge__
+  - assert
 """
 
 

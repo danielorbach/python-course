@@ -3,12 +3,17 @@ Default Dict
 
 write a dictionary with a default value so the code in main works without exceptions.
 DO NOT change the code in main.
+
+Read about:
+  - dict
+  - super()
 """
 
 
 
 class DefaultDict(dict):
     # ENTER CODE HERE
+    pass
 
 
 def main():
