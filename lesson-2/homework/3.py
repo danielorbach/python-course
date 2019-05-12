@@ -18,19 +18,27 @@ from functools import reduce
 # ENTER YOUR DECORATORS HERE
 
 def decorator1(func):
-    pass
+    def inner(x, y):
+        return func(int(x, 16), int(y, 8))
+    return inner
 
 
 def decorator2(func):
-    pass
+    def inner(x, y):
+        return func(x, y, 16)
+    return inner
 
 
 def decorator3(func):
-    pass
+    def inner(x, y):
+        return func([x], y)
+    return inner
 
 
 def decorator4(func):
-    pass
+    def inner(x, y):
+        return func(y, x)
+    return inner
 
 
 # ==========================
@@ -55,8 +63,8 @@ def multiply(x, y):
     return reduce(operator.add, x * y)
 
 
-@decorator4
 @decorator5
+@decorator4
 def divide(x, y):
     return x / y
 

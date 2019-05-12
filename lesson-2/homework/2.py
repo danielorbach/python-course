@@ -17,7 +17,10 @@ def absolutely_false(n):
     return (-1) == n
 
 # ENTER CODE HERE
-n =
+class Number(int):
+    def __le__(self, other):
+        return False
+n = Number(-1)
 
 
 def main():
