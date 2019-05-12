@@ -1,0 +1,160 @@
+   1: >>> import rpyc
+   2: >>> conn = rpyc.classic.connect('172.16.28.250', 8000)
+   3: >>> conn.builtins.print('Hello i am another client')
+   4: >>> #remote_file = conn.open
+   5: >>> conn.open
+   6: >>> conn.builtins.open
+<function open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)>
+   7: >>> #remote_file = conn.builtins.open
+   8: >>> conn.modules.os
+<module 'os' from '/usr/local/lib/python3.7/os.py'>
+   9: >>> conn.os
+  10: >>> conn.modules.os.getcwd()
+'/opt/bbtest'
+  11: >>> home = conn.modules.os.getcwd()
+  12: >>> file = conn.builtins.open(home+'/remote_file.txt', 'w')
+  13: >>> file.write('text from windows client')
+24
+  14: >>> file.close()
+  15: >>> file
+<_io.TextIOWrapper name='/opt/bbtest/remote_file.txt' mode='w' encoding='UTF-8'>
+  16: >>> open('C:\\temp\\test.txt', 'w')
+<_io.TextIOWrapper name='C:\\temp\\test.txt' mode='w' encoding='cp1252'>
+  17: >>> conn.modules.os.system('ipconfig')
+32512
+  18: >>> conn.modules.os.system('ifconfig')
+0
+  19: >>> conn.modules.subprocess
+<module 'subprocess' from '/usr/local/lib/python3.7/subprocess.py'>
+  20: >>> conn.modules
+<rpyc.core.service.ModuleNamespace at 0x1fbbd45a648>
+  21: >>> p = conn.modules.subprocess.Popen('ping localhost')
+  22: >>> p = conn.modules.subprocess.Popen('/usr/bin/ping localhost')
+  23: >>> p = conn.modules.subprocess.Popen(['/usr/bin/ping', 'localhost'])
+  24: >>> #p2 = conn.modules.subprocess.Popen(['ping', 'localhost'], stdout=)
+  25: >>> import subprocess
+  26: >>> p2 = conn.modules.subprocess.Popen(['ping', 'localhost'], stdout=subprocess.PIPE)
+  27: >>> p2.stdout.read(1)
+b'P'
+  28: >>> p2.stdout.read(100)
+b'ING localhost (127.0.0.1) 56(84) bytes of data.\n64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl='
+  29: >>> p2.stdout.read(100)
+b'64 time=0.022 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.034 ms\n64 bytes from '
+  30: >>> p2.stdout.read(100)
+b'localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.031 ms\n64 bytes from localhost (127.0.0.1): icmp_seq'
+  31: >>> subprocess.PIPE
+-1
+  32: >>> p2.kill()
+  33: >>> p2.wait()
+-9
+  34: >>> p2.communicate()
+(b'=4 ttl=64 time=0.023 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=5 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=6 ttl=64 time=0.042 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=7 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=8 ttl=64 time=0.043 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=9 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=10 ttl=64 time=0.034 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=11 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=12 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=13 ttl=64 time=0.036 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=14 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=15 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=16 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=17 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=18 ttl=64 time=0.031 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=19 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=20 ttl=64 time=0.040 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=21 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=22 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=23 ttl=64 time=0.044 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=24 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=25 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=26 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=27 ttl=64 time=0.031 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=28 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=29 ttl=64 time=0.031 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=30 ttl=64 time=0.030 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=31 ttl=64 time=0.039 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=32 ttl=64 time=0.040 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=33 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=34 ttl=64 time=0.031 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=35 ttl=64 time=0.034 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=36 ttl=64 time=0.040 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=37 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=38 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=39 ttl=64 time=0.040 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=40 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=41 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=42 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=43 ttl=64 time=0.042 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=44 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=45 ttl=64 time=0.034 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=46 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=47 ttl=64 time=0.042 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=48 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=49 ttl=64 time=0.039 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=50 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=51 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=52 ttl=64 time=0.031 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=53 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=54 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=55 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=56 ttl=64 time=0.035 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=57 ttl=64 time=0.034 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=58 ttl=64 time=0.035 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=59 ttl=64 time=0.053 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=60 ttl=64 time=0.034 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=61 ttl=64 time=0.035 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=62 ttl=64 time=0.034 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=63 ttl=64 time=0.034 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=64 ttl=64 time=0.045 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=65 ttl=64 time=0.032 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=66 ttl=64 time=0.033 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=67 ttl=64 time=0.033 ms\n',
+ None)
+  35: >>> print(_)
+  36: >>> _23
+  37: >>> _36
+  38: >>> %_36
+  39: >>> p
+<subprocess.Popen at 0x1fbbdb85630>
+  40: >>> type(p)
+<netref class 'subprocess.Popen'>
+  41:
+>>> def whatsmyid(o):
+...     return id(o)
+...
+  42: >>> import rpyc.utils.classic
+  43: >>> remote_whatmyid = rpyc.utils.classic.teleport_function(whatsmyid)
+  44: >>> #remote_whatmyid = rpyc.utils.classic.teleport_function(conn, whatsmyid)
+  45: >>> remote_whatmyid = rpyc.utils.classic.teleport_function(conn, whatsmyid)
+  46: >>> whatsmyid
+<function __main__.whatsmyid(o)>
+  47: >>> remote_whatmyid
+<function whatsmyid(o)>
+  48: >>> type(remote_whatmyid)
+<netref class 'builtins.function'>
+  49: >>> type(whatsmyid)
+function
+  50: >>> remote_whatmyid(1)
+9302944
+  51: >>> remote_whatmyid(2)
+9302976
+  52: >>> remote_whatmyid(3)
+9303008
+  53: >>> remote_whatmyid('asd')
+139971021449568
+  54: >>> id(1)
+140713487360848
+  55: >>> id(1)
+140713487360848
+  56: >>> conn.eval('id(1)')
+9302944
+  57: >>> conn.eval('x = (1)')
+  58: >>> conn.eval('x == (1)')
+  59: >>> conn.execute('x = (1)')
+  60: >>> conn.eval('x == (1)')
+True
+  61: >>> conn.eval('x')
+1
+  62: >>> type(_)
+int
+  63: >>> execute
+  64: >>> eval
+<function eval(source, globals=None, locals=None, /)>
+  65: >>> exec
+<function exec(source, globals=None, locals=None, /)>
+  66: >>> conn.eval('id(x)')
+9302944
+  67: >>> remote_whatmyid(1)
+9302944
+  68: >>> conn.eval('id(whatsmyid)')
+139971021525880
+  69: >>> remote_whatmyid
+<function whatsmyid(o)>
+  70: >>> id(remote_whatmyid)
+2180731443960
+  71: >>> remote_whatmyid(remote_whatmyid)
+139971021525880
+  72: >>> conn
+<rpyc.core.protocol.Connection 'conn1' object at 0x000001FBBDA59B70>
+  73: >>> p
+<subprocess.Popen at 0x1fbbdb85630>
+  74: >>> type(p)
+<netref class 'subprocess.Popen'>
+  75: >>> p.pid
+9696
+  76: >>> import threading
+  77:
+>>> def thread_main():
+...     import time
+...     for i in range(10):
+...         print(id(i))
+...         time.sleep(1)
+...
+  78: >>> remote_thread_main = rpyc.utils.classic.teleport_function(conn, thread_main)
+  79: >>> t = conn.modules.threading.Thread(target=remote_thread_main)
+  80: >>> t
+<Thread(Thread-3, initial daemon)>
+  81: >>> t.start()
+  82: >>> t.join()
+  83: >>> t = conn.modules.threading.Thread(target=remote_thread_main)
+  84: >>> t.start()
+  85: >>> t.join()
+  86: >>> import socket
+  87: >>> client = socket.socket()
+  88: >>> server = conn.modules.socket.socket()
+  89: >>> server.bind(('0.0.0.0', 8443))
+  90: >>> server.listen(1)
+  91:
+>>> def server_func():
+...     c, a = server.accept()
+...     print(f'client {c}, address: {a}')
+...     import time
+...     time.sleep(20)
+...
+  92: >>> server_thread = threading.Thread(target=server_func)
+  93: >>> server_thread.start()
+  94: >>> client.connect(('172.16.28.250', 8443))
+  95: >>> socket.getaddrinfo()
+  96: >>> client.close()
+  97: >>> %history 1-100 -n -o -p -t "C:\Users\daniel.orbach\Development\orbach\Courses\python-course\lesson-3\ipython.txt"
+  98: >>> %history 1-100 -n -o -p -f "C:\Users\daniel.orbach\Development\orbach\Courses\python-course\lesson-3\ipython.txt"
