@@ -1,17 +1,11 @@
 """
-# Workshop #1
-
-Write a function that returns a random name for a file
+Unittest for Workshop #1
 """
 
-import random
-
-
-def generate_filename():
-    return f'file_{random.random()}.tmp'
+from .ex1 import generate_characters
 
 
 def test():
-    name1 = generate_filename()
-    name2 = generate_filename()
+    name1 = generate_characters()
+    name2 = generate_characters()
     assert name1 != name2
