@@ -5,5 +5,5 @@ Write a function that returns a random string
 """
 
 
-def generate_characters(length=10):
+def generate_characters(length):
     pass
